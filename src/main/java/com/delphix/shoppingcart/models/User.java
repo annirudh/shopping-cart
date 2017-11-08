@@ -1,5 +1,6 @@
 package com.delphix.shoppingcart.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,15 +11,31 @@ public class User {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private final long id;
+  @Column(name = "id", updatable = false, nullable = false)
+  private long id;
 
+  @Column(nullable = false)
+  private String email;
 
-  private final String firstName;
-  private final String lastName;
+  @Column(nullable = false)
+  private int creditCardNumber;
 
-  public User(long id, String firstName, String lastName) {
-    this.id = id;
-    this.firstName = firstName;
-    this.lastName = lastName;
+  private User() { }
+
+  public User(String email, int creditCardNumber) {
+    this.email = email;
+    this.creditCardNumber = creditCardNumber;
+  }
+
+  public long getId() {
+    return id;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public int getCreditCardNumber() {
+    return creditCardNumber;
   }
 }
