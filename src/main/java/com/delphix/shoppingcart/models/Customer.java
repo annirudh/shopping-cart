@@ -1,30 +1,33 @@
 package com.delphix.shoppingcart.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
-public class User {
+public class Customer {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "id", updatable = false, nullable = false)
+  @Column(updatable = false, nullable = false)
   private long id;
 
-  @Column(nullable = false)
+  @Column(unique = true, nullable = false)
   private String email;
 
-  @Column(nullable = false)
-  private int creditCardNumber;
+  @JsonIgnore
+  @OneToMany(mappedBy = "customer")
+  private Set<CreditCard> creditCards;
 
-  private User() { }
+  private Customer() { }
 
-  public User(String email, int creditCardNumber) {
+  public Customer(String email) {
     this.email = email;
-    this.creditCardNumber = creditCardNumber;
   }
 
   public long getId() {
@@ -35,7 +38,7 @@ public class User {
     return email;
   }
 
-  public int getCreditCardNumber() {
-    return creditCardNumber;
+  public Set<CreditCard> getCreditCards() {
+    return creditCards;
   }
 }

@@ -2,7 +2,7 @@ package com.delphix.shoppingcart;
 
 import static com.google.common.truth.Truth.assertThat;
 
-import com.delphix.shoppingcart.controllers.UserController;
+import com.delphix.shoppingcart.controllers.CustomerController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +14,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class ShoppingCartApplicationTest {
 
 	@Autowired
-	private UserController userController;
+	private CustomerController customerController;
 
 	@Test
 	public void contextLoads() {
-		assertThat(userController).isNotNull();
+		assertThat(customerController).isNotNull();
 	}
 }
