@@ -38,11 +38,6 @@ public class CustomerController {
     return customerRepository.findOne(id).getCreditCards();
   }
 
-  @RequestMapping(value = "/customers/{id}/creditCards", method = RequestMethod.POST)
-  public CreditCard createCreditCardForCustomer(@PathVariable long id, @RequestBody CreditCard card) {
-    Customer customer = customerRepository.findOne(id);
-    card.setCustomer(customer);
+  // TODO: Add credit card for customer.
 
-    return creditCardRepository.save(card);
-  }
 }
