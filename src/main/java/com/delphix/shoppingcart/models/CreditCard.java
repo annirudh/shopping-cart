@@ -39,9 +39,15 @@ public class CreditCard {
   private CreditCard() { }
 
   public CreditCard(CardType cardType, String cardNumber, Customer customer) {
+    validateCardNumber(cardNumber);
+
     this.cardType = cardType;
     this.cardNumber = cardNumber;
     this.customer = customer;
+  }
+
+  public static void validateCardNumber(String cardNumber) {
+    // TODO: Validation logic.
   }
 
   public long getId() {

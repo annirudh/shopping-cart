@@ -44,14 +44,7 @@ public class CustomerControllerTest {
 
   @Test
   public void createAndGetCreditCardForCustomerTest() throws Exception {
-    Customer createdCustomer = createCustomer("user2@testmail.com");
-
-    CreditCard firstCard = createCreditCardForCustomer(createdCustomer, CardType.VISA, "1231");
-    CreditCard secondCard = createCreditCardForCustomer(createdCustomer, CardType.MASTERCARD, "1245");
-
-    List<CreditCard> allCards = getCreditCardsForCustomer(createdCustomer);
-
-    assertThat(allCards).containsExactly(firstCard, secondCard);
+    // TODO: Write test for adding credit card.
   }
 
   private Customer createCustomer(String email) throws Exception {
